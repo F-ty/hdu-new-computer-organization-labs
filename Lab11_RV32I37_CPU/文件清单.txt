@@ -1,0 +1,10 @@
+src/                     Verilog设计源代码
+sim/tb_rv32i_cpu.v       行为仿真测试平台
+sim/reference_sim.py     等价参考模型
+sim/reference_trace.csv  参考执行轨迹
+constraints/             HCS-A02管脚约束
+mem/program.mem          61条测试程序机器码
+mem/data.mem             数据存储器初始化文件
+mem/lab11_test.s         测试汇编程序
+mem/build_program.py     机器码生成脚本
+README_实验11完整教程.md  Vivado完整操作教程

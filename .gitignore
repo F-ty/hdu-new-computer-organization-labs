@@ -1,0 +1,31 @@
+# Vivado generated files
+.Xil/
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.jou
+*.log
+*.pb
+*.wdb
+*.dcp
+*.bit
+*.ltx
+*.str
+*.xpr.user
+xsim.dir/
+webtalk*.xml
+NA/
+
+# Office reports and exported documents
+*.doc
+*.docx
+*.pdf
+*.ppt
+*.pptx
+
+# OS files
+Thumbs.db
+Desktop.ini
