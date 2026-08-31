@@ -1,33 +1,13 @@
-# 实验12 硬布线控制 CPU
+# 实验 12：硬布线控制 CPU
 
-目标器件：XC7A100T-CSG324-2L，HCS-A02 板卡。
+本实验实现硬布线控制 CPU。RTL 在 `rtl`，测试平台在 `sim`，存储器初始化文件在 `mem`。
 
-## 目录
-- `rtl/`：分模块 Verilog 源代码
-- `sim/`：自检式仿真文件
-- `constraints/`：HCS-A02 管脚约束
-- `mem/`：可用于 Vivado Block Memory Generator 的 COE 文件
-- `docs/`：测试汇编程序
-- `create_project.tcl`：自动创建 Vivado 工程
+## Vivado 操作
 
-## 板级操作
-- BT3：复位，按下时清零
-- BT2：单步机器周期
-- SW2~SW0：数码管显示选择
-  - 000 PC
-  - 001 IR
-  - 010 W_Data
-  - 011 MDR
-  - 100 A
-  - 101 B
-  - 110 F
-  - 111 低9位显示 M4~M0 与 FR
-- LD8~LD4：M4~M0
-- LD3~LD0：CF、ZF、SF、OF
+推荐在 Vivado Tcl Console 中执行 `create_project.tcl` 创建工程；脚本无法使用时可手动操作：
 
-## Vivado 快速建立工程
-1. 在 Tcl Console 切换到本目录。
-2. 执行 `source create_project.tcl`。
-3. Run Simulation，确认控制台出现 `ALL TESTS PASSED`。
-4. Run Synthesis，Run Implementation，Generate Bitstream。
-5. Open Hardware Manager，Program Device。
+1. 新建 RTL Project，添加 `rtl` 下全部 Verilog 文件，顶层模块为 `board_top`。
+2. 添加 `constraints/hcs_a02_exp12.xdc`。
+3. 在指令/数据存储器配置中加入 `mem/exp12_program.coe` 与 `mem/exp12_data.coe`。
+4. 添加 `sim/tb_hardwired_cpu.v`，运行行为仿真。
+5. 依次综合、实现、生成 bitstream，并用 Hardware Manager 下载。
